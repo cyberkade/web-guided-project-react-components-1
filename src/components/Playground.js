@@ -9,9 +9,10 @@
   - We use the dedicated "state updater" to schedule a state change: `setHealthPoints(healthPoints + 1)`
 */
 
-import React from 'react';
+import React, {useState} from 'react';
 
-Playground = (props) => {
+
+const Playground = (props) => {
   const [count, setCount] = useState(0);
   const [spinnerOn, setSpinnerOn] = useState(false);
 
@@ -26,9 +27,10 @@ Playground = (props) => {
   return (
     <div>
       <h1>I'm working! Yay!</h1>
-      <button onclick={ () => setCount(count + 1) }>Add One</button>
-      <button onclick={ () => setSpinnerOn(!spinnerOn) }>Toggle Spinner...</button>
-      <p>Count is {count}</p>
+      <button onClick={ () => setCount(count + 1) }>Add One</button>
+      <button onClick={ () => setCount(count - 1) }>Subtract One</button>
+      <button onClick={ () => setSpinnerOn(!spinnerOn) }>Toggle Spinner...</button>
+      <p>Count is: {count}</p>
     </div>
   )
 }
