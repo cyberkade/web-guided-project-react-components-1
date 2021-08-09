@@ -11,9 +11,25 @@
 
 import React from 'react';
 
-Playground = () => {
+Playground = (props) => {
+  const [count, setCount] = useState(0);
+  const [spinnerOn, setSpinnerOn] = useState(false);
+
+  if(spinnerOn) {
+    return (
+      <div>
+        <p>Loading, please wait...</p>
+      </div>
+    )
+  }
+
   return (
-    <h1>I'm working! Yay!</h1>
+    <div>
+      <h1>I'm working! Yay!</h1>
+      <button onclick={ () => setCount(count + 1) }>Add One</button>
+      <button onclick={ () => setSpinnerOn(!spinnerOn) }>Toggle Spinner...</button>
+      <p>Count is {count}</p>
+    </div>
   )
 }
 
