@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-
+import Playground from './components/Playground'
 /*
 💥💥💥 Rules when DECLARING a React component 💥💥💥
   - Name is capitalized
@@ -22,14 +22,23 @@ import { render } from 'react-dom'
 */
 
 function App(props) {
+  const {cohort, instructor, happy, week} = props;
   return (
     <div className='container'>
-      <h1>Welcome to React, Web {props.cohort}</h1>
+      <h1 id='mainHeading'>Welcome to React, web {cohort}</h1>
+      <p>{instructor} welcomes you!</p>
+    <div className='container child'>
+      <h1>Welcome to React, Web {cohort}</h1>
+      { happy ? <div>Very Happy!</div> : <div>Must be Monday, eh?</div> }
+      <div>It is week {week}</div>
+    </div>
+    <button className='click'>I am a button!</button>
+    <Playground />
     </div>
   )
 }
 
 render(
-  <App cohort='37' />,
+  <App cohort='37' instructor='Casey' happy = {false} week={2} />,
   document.querySelector('#root')
 )
